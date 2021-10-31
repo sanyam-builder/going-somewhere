@@ -2,6 +2,7 @@
   <div id="app">
     <div>{{timerValue}}</div>
     <button v-on:click="startTimer">Start timer</button>
+    <button v-on:click="pauseTimer">Pause timer</button>
   </div>
 </template>
 
@@ -20,6 +21,9 @@ export default {
       this.timerId = setInterval(()=>{
         this.timerValue++;
       }, 1000);
+    },
+    pauseTimer() {
+      clearInterval(this.timerId);
     },
   },
 }
